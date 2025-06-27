@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+    (function() {
+        var savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calder - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#" class="logo">Calder Russell</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact Me</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="resume-button" onclick="openResume()">
+                    <span class="resume-icon">📄</span>
+                    Resume
+                </button>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <span id="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div id="home" class="page active">
+            <div class="hero">
+                <h1>Hello, I'm Calder Russell</h1>
+                <p>A passionate highschooler interested in engineering and coding</p>
+                <a href="projects.html" class="cta-button">View My Work</a>
+            </div>
+        </div>
+    </main>
+    <div class="connect-section">
+        <h2 class="connect-title">Let's Connect</h2>
+        <p class="connect-description">I'm always excited to collaborate on new projects and connect with fellow creators.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank" class="social-link linkedin">
+                <div class="social-icon">💼</div>
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/your-username" target="_blank" class="social-link github">
+                <div class="social-icon">💻</div>
+                <span>GitHub</span>
+            </a>
+            <a href="https://instagram.com/your-username" target="_blank" class="social-link instagram">
+                <div class="social-icon">📸</div>
+                <span>Instagram</span>
+            </a>
+            <a href="mailto:your.email@example.com" class="social-link email">
+                <div class="social-icon">✉️</div>
+                <span>Email</span>
+            </a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

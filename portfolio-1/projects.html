@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+    (function() {
+        var savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calder - Projects</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="logo">Calder Russell</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact Me</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="resume-button" onclick="openResume()">
+                    <span class="resume-icon">📄</span>
+                    Resume
+                </button>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <span id="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div id="projects" class="page">
+            <h2 style="text-align: center; font-size: 3rem; margin-bottom: 3rem;">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <a href="motor.html" style="display:block; color:inherit; text-decoration:none;">
+                        <div class="project-image">🛒</div>
+                        <div class="project-content">
+                            <h3 class="project-title">E-Commerce Platform</h3>
+                            <p class="project-description">A full-stack e-commerce solution with modern UI, secure payments, and real-time inventory management.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">React</span>
+                                <span class="project-tag">Node.js</span>
+                                <span class="project-tag">MongoDB</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <a href="project-dashboard.html" style="display:block; color:inherit; text-decoration:none;">
+                        <div class="project-image">📊</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Analytics Dashboard</h3>
+                            <p class="project-description">Interactive data visualization dashboard with real-time charts and comprehensive reporting features.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">D3.js</span>
+                                <span class="project-tag">Vue.js</span>
+                                <span class="project-tag">Python</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <a href="project-mobile.html" style="display:block; color:inherit; text-decoration:none;">
+                        <div class="project-image">📱</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Mobile App</h3>
+                            <p class="project-description">Cross-platform mobile application with offline capabilities and seamless cloud synchronization.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">React Native</span>
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">TypeScript</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <a href="project-ai.html" style="display:block; color:inherit; text-decoration:none;">
+                        <div class="project-image">🤖</div>
+                        <div class="project-content">
+                            <h3 class="project-title">AI Chat Assistant</h3>
+                            <p class="project-description">Intelligent chatbot with natural language processing and machine learning capabilities.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">TensorFlow</span>
+                                <span class="project-tag">NLP</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

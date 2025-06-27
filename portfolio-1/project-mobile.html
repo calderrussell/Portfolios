@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+    (function() {
+        var savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile App - Calder's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="logo">Calder Russell</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact Me</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="resume-button" onclick="openResume()">
+                    <span class="resume-icon">📄</span>
+                    Resume
+                </button>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <span id="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="main">
+        <div class="page">
+            <div class="project-detail">
+                <a href="projects.html" class="back-button">← Back to Projects</a>
+                <h1>Mobile App</h1>
+                <div class="project-detail-image">📱</div>
+                <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">A cross-platform mobile application that seamlessly syncs data across devices while providing offline functionality for uninterrupted user experience.</p>
+                
+                <h3 style="margin-bottom: 1rem;">Key Features</h3>
+                <ul style="margin-bottom: 2rem; color: var(--text-secondary);">
+                    <li>Cross-platform compatibility (iOS & Android)</li>
+                    <li>Offline-first architecture</li>
+                    <li>Cloud synchronization</li>
+                    <li>Push notifications</li>
+                    <li>Biometric authentication</li>
+                </ul>
+                
+                <h3 style="margin-bottom: 1rem;">Technologies Used</h3>
+                <div class="skills">
+                    <span class="skill">React Native</span>
+                    <span class="skill">TypeScript</span>
+                    <span class="skill">Firebase</span>
+                    <span class="skill">Redux</span>
+                    <span class="skill">AsyncStorage</span>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
