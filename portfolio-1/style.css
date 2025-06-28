@@ -241,8 +241,7 @@ body {
 .social-links {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
 }
 
@@ -298,6 +297,8 @@ body {
     opacity: 1;
     transform: translateX(0);
 }
+
+
 
 /* Platform-specific colors */
 .social-link.linkedin:hover {
@@ -426,14 +427,19 @@ body {
 }
 
 .project-image {
+    width: 100%;
+    max-width: 400px;
     height: 200px;
-    background: linear-gradient(135deg, var(--accent), #8b5cf6);
+    border-radius: 20px;
     display: flex;
+    background-size: cover;
+    background-position: center;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 3rem;
+    font-size: 6rem;
 }
+
 
 .project-content {
     padding: 2rem;
