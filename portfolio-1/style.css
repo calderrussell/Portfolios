@@ -218,7 +218,7 @@ body {
 .connect-section {
     max-width: 800px;
     margin: 0 auto;
-    padding: 6rem 0 4rem;
+    padding: 0 4rem;
     text-align: center;
 }
 
@@ -386,7 +386,7 @@ body {
 
 .about-text h2 {
     font-size: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: -1rem;
 }
 
 .about-text p {
@@ -413,6 +413,36 @@ body {
 .skill:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* About Page - Location */
+.location {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  margin: 1rem 0; /* space above/below so it doesn’t crowd the heading */
+}
+
+.location svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  fill: currentColor
+}
+
+.location-text {
+  display: inline-block;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: transform 0.7s ease, opacity 0.3s ease;
+}
+
+.location:hover .location-text {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* Projects Page */
