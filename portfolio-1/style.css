@@ -447,19 +447,29 @@ body {
 
 /* Projects Page */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* On small screens, fall back to one column */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .project-card {
-    background: var(--bg-secondary);
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
-    cursor: pointer;
+  background: var(--bg-secondary);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  /* new: fill the column */
+  width: 100%;
 }
 
 .project-card:hover {
@@ -468,17 +478,11 @@ body {
 }
 
 .project-image {
-    width: 100%;
-    max-width: 400px;
-    height: 200px;
-    border-radius: 20px;
-    display: flex;
-    background-size: cover;
-    background-position: center;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 6rem;
+  width: 100%;
+  height: auto;            /* or set a fixed height and object-fit if you like */
+  display: block;          /* img tags default, for backgrounds just remove width/height */
+  background-size: cover;
+  background-position: center;
 }
 
 
@@ -510,6 +514,7 @@ body {
     border-radius: 15px;
     font-size: 0.875rem;
 }
+
 
 /* Project Detail Page */
 .project-detail {
@@ -548,6 +553,8 @@ body {
 .back-button:hover {
     transform: translateX(-5px);
 }
+
+
 
 /* Contact Page */
 .contact-content {
