@@ -1,6 +1,6 @@
 # Portfolio Project
 
-This portfolio project showcases my work as a developer, highlighting my skills, projects, and ways to contact me. Below is an overview of the project's structure and contents.
+This portfolio project showcases my work as a developer, highlighting my skills, projects, and ways to contact me. Below is an overview of the project's structure and contents. To visit the current website, go [here](https://calderrussell.github.io/Portfolios/portfolio-1/)
 
 ## Project Structure
 
