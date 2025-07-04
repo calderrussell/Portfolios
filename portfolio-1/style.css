@@ -400,6 +400,7 @@ body {
     flex-wrap: wrap;
     gap: 1rem;
     margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 .skill {
@@ -524,12 +525,23 @@ body {
 
 .project-detail h1 {
     font-size: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
 .project-detail-image {
     height: 400px;
+    background: linear-gradient(135deg, var(--accent), #8b5cf6);
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 5rem;
+}
+.vert-project-detail-image {
+    height: 600px;
     background: linear-gradient(135deg, var(--accent), #8b5cf6);
     border-radius: 20px;
     margin-bottom: 3rem;
