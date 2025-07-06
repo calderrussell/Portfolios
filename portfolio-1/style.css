@@ -32,6 +32,11 @@ body {
     transition: all 0.3s ease;
 }
 
+.main, .hero, .page {
+  position: relative;
+  z-index: 3;
+}
+
 /* Navigation */
 .nav {
     position: fixed;
@@ -178,10 +183,56 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+  
+  50% {
+    scale: 1 1.5;
+  }
+  
+  to {
+    rotate: 360deg;
+  }
+}
+
+#blob {
+  background-color: white;
+  height: 34vmax;
+  aspect-ratio: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: linear-gradient(to right, #FFD3A5, #FD6585);
+  animation: rotate 20s infinite;
+  opacity: 0.7;
+}
+
+[data-theme="dark"] #blob {
+    background: linear-gradient(to right, aquamarine, mediumpurple);
+}
+
+#blur {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  pointer-events: none; /* so it doesn't block clicks */
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(12vmax);
+}
+
 /* Home Page */
 .hero {
     text-align: center;
+    position: relative;
     padding: 6rem 0;
+    z-index: 3;
 }
 
 .hero h1 {
@@ -190,7 +241,7 @@ body {
     margin-bottom: 1rem;
     /*background: linear-gradient(135deg, var(--text-primary), var(--accent));*/
     background: linear-gradient(135deg, #001F3F, #41729F, #E1f1FF);
-    
+    z-index: 3;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -201,6 +252,7 @@ body {
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto 3rem;
+    z-index: 3;
 }
 
 .cta-button {
@@ -226,6 +278,7 @@ body {
     margin: 0 auto;
     padding: 0 4rem;
     text-align: center;
+    position: relative;
 }
 
 .connect-title {
