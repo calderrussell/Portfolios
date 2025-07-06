@@ -10,10 +10,13 @@ portfolio
 ├── contact.html        # Includes the "Contact Me" section with a form for user inquiries.
 ├── index.html          # Main entry point for the portfolio with navigation links.
 ├── projects.html       # Lists all projects with brief descriptions and links to details.
-├── project-ai.html     # Details the "AI Chat Assistant" project, including features and technologies.
-├── project-dashboard.html # Provides information about the "Analytics Dashboard" project.
-├── project-ecommerce.html # Describes the "E-Commerce Platform" project and its features.
-├── project-mobile.html  # Outlines the "Mobile App" project with key features and technologies.
+├── bike.html           # Details the electric bike project, with CAD and technologies explained.
+├── cubesat.html        # Provides information about the "CubeSat" project, with additional background on CubeSats.
+├── LLM.html            # Describes the development of an LLM trained to replicate Brandon Sanderson's work.
+├── motor.html          # Outlines the creation of my 3D printed motor, with all principles in physics explained. 
+├── project-Cave.html   # Include the explanation behind the app that I designed with the MIT CAVE Lab.
+├── project-ML.html     # Details the training, tuning and data collection behind the creation of a Blue Bike prediction model. 
+├── project-NASA.html   # Provides the outline for the development of paddle wheels meant to work in Microgravity tested at NASA. 
 ├── style.css           # Contains styles for the portfolio, defining layout and visual aspects.
 ├── script.js           # Includes JavaScript functionality for navigation and interactivity.
 └── README.md           # Documentation for the project, explaining its purpose and setup.
@@ -39,4 +42,4 @@ portfolio
 
 ## Purpose
 
-The purpose of this portfolio is to demonstrate my skills as a developer, showcase my projects, and provide a way for potential collaborators or employers to contact me.
+The purpose of this portfolio is to demonstrate my skills as a developer, data-scientist, engineer, as well as showcase my projects, and provide a way for potential collaborators or employers to contact me.
