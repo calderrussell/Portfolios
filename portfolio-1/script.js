@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Form submission (if contact form exists)
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit' , (e) => {
             e.preventDefault();
             alert('Message sent! (This is a demo - implement your own form handler)');
         });
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function openResume() {
     // Replace 'path/to/your/resume.pdf' with the actual path to your PDF file
-    const resumeUrl = 'assets/CaldersWebsiteResume.pdf';
+    const resumeUrl = 'assets/Calder_Resume.pdf';
     
     // Open PDF in new tab
     window.open(resumeUrl, '_blank');
