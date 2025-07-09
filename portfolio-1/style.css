@@ -207,14 +207,12 @@ body {
   translate: -50% -50%;
   border-radius: 50%;
   background: linear-gradient(to right, #8ec5fc, #8dd3ff, #a1d8ff, #c1d2ff, #e0c3ff);
-  animation: rotate 20s infinite;
   opacity: 0.7;
+  z-index: 1;
 }
 
-
-
 [data-theme="dark"] #blob {
-    background: linear-gradient(to right, aquamarine, mediumpurple);
+  background: linear-gradient(to right, aquamarine, mediumpurple);
 }
 
 #blur {
@@ -224,8 +222,6 @@ body {
   height: 100vh;
   z-index: 2;
   pointer-events: none; /* so it doesn't block clicks */
-  justify-content: center;
-  align-items: center;
   backdrop-filter: blur(12vmax);
 }
 
