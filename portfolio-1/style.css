@@ -211,7 +211,7 @@ body {
   z-index: 1;
 }
 
-[data-theme="dark"] #blob {
+html[data-theme="dark"] #blob {
   background: linear-gradient(to right, aquamarine, mediumpurple);
 }
 
@@ -237,9 +237,15 @@ body {
     font-size: 4rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    /*background: linear-gradient(135deg, var(--text-primary), var(--accent));*/
     background: linear-gradient(135deg, #001F3F, #41729F, #E1f1FF);
-    z-index: 3;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Somethings more visible in dark mode*/
+[data-theme="dark"] .hero h1 {
+    background: linear-gradient(135deg, #6461ff, #57a0ff, #71acf9);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
