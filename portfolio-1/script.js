@@ -41,9 +41,9 @@ function toggleTheme() {
     document.documentElement.setAttribute('data-theme', newTheme);
     document.getElementById('theme-icon').textContent = newTheme === 'dark' ? '☀️' : '🌙';
     
+    // Save theme to localStorage for persistence
     localStorage.setItem('theme', newTheme);
 }
-
 // Smooth scrolling for internal links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

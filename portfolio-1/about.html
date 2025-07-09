@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script>
-    (function() {
-        var savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-    })();
+        setTimeout(function () {
+            var savedTheme = localStorage.getItem('theme');
+            if (!savedTheme) {
+                savedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                localStorage.setItem('theme', savedTheme);
+            }
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+            var themeIcon = document.getElementById('theme-icon');
+            if (themeIcon) {
+                themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+            }
+        }, 0);
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Calder Russell</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="blob"></div>
     <div id="blur"></div>
@@ -44,12 +55,17 @@
                     <h2>About Me</h2>
                     <div class="location">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                            <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
+                            <path
+                                d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
                         </svg>
                         <span class="location-text">Cambridge, MA</span>
                     </div>
 
-                    <p>I am a 17 year old highschool student who enjoys creating new things. My main interests revolve around Engineering and Data Science. I love getting to visualize an issue and solve it. I am most experience using Python and Java but have done some front end development as well. I have used KiCad for multiple projects in the past to make PCBs, and I have used Fusion 360 for the majority of projects in this portfolio.</p>
+                    <p>I am a 17 year old highschool student who enjoys creating new things. My main interests revolve
+                        around Engineering and Data Science. I love getting to visualize an issue and solve it. I am
+                        most experience using Python and Java but have done some front end development as well. I have
+                        used KiCad for multiple projects in the past to make PCBs, and I have used Fusion 360 for the
+                        majority of projects in this portfolio.</p>
                     <div class="skills">
                         <span class="skill">Python</span>
                         <span class="skill">KICAD</span>
@@ -65,4 +81,5 @@
     </main>
     <script src="script.js"></script>
 </body>
+
 </html>
