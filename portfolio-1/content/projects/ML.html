@@ -1,0 +1,238 @@
+<div class="page">
+    <div class="project-detail">
+        <a href="#projects" class="back-button">← Back to Projects</a>
+        <h1>ML Model Blue Bike Demand Prediction</h1>
+        <div class="project-detail-image" style="background: url('assets/BlueBikesML.avif') center/cover;"></div>
+        <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">I set out to forecast hourly
+            demand for Blue Bikes using real trip data (start/end station, timestamp, rideable type). My goal was to
+            build a model that could support operations planning—knowing in advance how many bikes will be needed at
+            each hour of the day. I was first interested in this idea when I saw a Blue Bike station that was new and
+            realized I didn't know how they decided they had enough bikes to meet demand.</p>
+        <div class="project-section">
+
+            <div>
+                <figure id="fig1">
+                    <img src="assets/download.png" alt="Time-series plot of hourly Blue Bikes demand" />
+                    <figcaption><strong>Figure 1.</strong> Time-series plot of hourly Blue Bikes demand over the entire
+                        period.</figcaption>
+                </figure>
+
+                <h2>1. Data Preparation</h2>
+                <ol>
+                    <li>
+                        <strong>Feature Extraction</strong>
+                        <p>Loaded the raw CSV of every trip, parsed the start time into separate <code>date</code>,
+                            <code>hour</code>, <code>dayofweek</code>, <code>is_weekend</code>, and
+                            <code>is_holiday</code> columns. Filtered down to just <code>date</code>, <code>hour</code>,
+                            the calendar flags, and <code>total_trips</code> per hour via a grouped aggregation.
+                        </p>
+                    </li>
+                    <li>
+                        <strong>Train/Test Split</strong>
+                        <p>Sorted chronologically and used the last 6 days as a hold-out test set; the prior data (all
+                            earlier dates) became my training set.</p>
+                    </li>
+                </ol>
+
+                <h2>2. Baseline: Linear Regression</h2>
+                <p>My first attempt was a simple linear regression on the four calendar features (<code>hour</code>,
+                    <code>dayofweek</code>, <code>is_weekend</code>, <code>is_holiday</code>):
+                </p>
+                <pre><code class="language-python">from sklearn.linear_model import LinearRegression
+
+                    lr = LinearRegression()
+                    lr.fit(X_train, y_train)
+                    y_pred = lr.predict(X_test)
+                    </code></pre>
+                <p>
+                    <strong>Result:</strong> RMSE ≈ <em>475.15</em>, MAE ≈ <em>370.90/em>.<br>
+                        <strong>Insight:</strong> The straight-line fit couldn’t capture the sharp morning/evening peaks
+                        or weekend vs. weekday shifts.
+                </p>
+
+                <figure id="fig2">
+                    <img src="assets/Act_Pred_ln.png" alt="Scatterplot of actual vs. predicted linear regression" />
+                    <img src="assets/ln_time.png" alt="Scatterplot of Time vs. Trips linear regression" />
+                    <figcaption><strong>Figure 2.</strong> Scatterplot of actual vs. predicted trips under the linear
+                        regression baseline, showing systematic under- and over-predictions.</figcaption>
+                </figure>
+
+                <h2>3. Model Exploration &amp; Leaderboard</h2>
+                <p>
+                    To find a better algorithm, I looped through all scikit-learn regressors using a 3-fold
+                    <code>TimeSeriesSplit</code>, evaluating MAE and RMSE for each:
+                </p>
+                <pre><code class="language-python">from sklearn.utils import all_estimators
+        from sklearn.model_selection import TimeSeriesSplit, cross_validate
+
+                    # Loop through regressors, collect CV MAE/RMSE into a DataFrame…
+                    </code></pre>
+                <p>This produced a “leaderboard” (top 10 shown):</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>RadiusNeighborsRegressor</td>
+                            <td>208.21</td>
+                            <td>334.59</td>
+                        </tr>
+                        <tr>
+                            <td>KNeighborsRegressor</td>
+                            <td>215.33</td>
+                            <td>346.70</td>
+                        </tr>
+                        <tr>
+                            <td>GaussianProcessRegressor</td>
+                            <td>230.50</td>
+                            <td>384.38</td>
+                        </tr>
+                        <tr>
+                            <td>BaggingRegressor</td>
+                            <td>232.29</td>
+                            <td>378.11</td>
+                        </tr>
+                        <tr>
+                            <td>RandomForestRegressor</td>
+                            <td>232.30</td>
+                            <td>381.48</td>
+                        </tr>
+                        <tr>
+                            <td>ExtraTreesRegressor</td>
+                            <td>234.21</td>
+                            <td>387.18</td>
+                        </tr>
+                        <tr>
+                            <td>DecisionTreeRegressor</td>
+                            <td>236.30</td>
+                            <td>390.14</td>
+                        </tr>
+                        <tr>
+                            <td>ExtraTreeRegressor</td>
+                            <td>236.96</td>
+                            <td>390.35</td>
+                        </tr>
+                        <tr>
+                            <td>HistGradientBoostingRegressor</td>
+                            <td>237.86</td>
+                            <td>363.27</td>
+                        </tr>
+                        <tr>
+                            <td>GradientBoostingRegressor</td>
+                            <td>240.59</td>
+                            <td>367.05</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>Table 1.</strong> Top 10 scikit-learn regressors by cross-validated MAE.</p>
+                <p><strong>Winner:</strong> <code>RadiusNeighborsRegressor</code> (MAE ≈ 208) captured local patterns by
+                    averaging demand from “nearby” hours in feature-space.</p>
+
+                <h2>4. Hyperparameter Tuning</h2>
+                <p>I wrapped the radius-neighbors model in a <code>Pipeline</code> (with <code>StandardScaler</code>)
+                    and ran a <code>GridSearchCV</code> over:</p>
+                <ul>
+                    <li><code>radius</code>: [0.5, 1, 2, 5, 10]</li>
+                    <li><code>weights</code>: [<code>'uniform'</code>, <code>'distance'</code>]</li>
+                    <li><code>metric</code>: [<code>'euclidean'</code>, <code>'manhattan'</code>]</li>
+                    <li><code>leaf_size</code>: [20, 30, 40]</li>
+                </ul>
+                <pre><code class="language-python">from sklearn.neighbors import RadiusNeighborsRegressor
+                    from sklearn.model_selection import GridSearchCV, TimeSeriesSplit
+                    from sklearn.pipeline import Pipeline
+                    from sklearn.preprocessing import StandardScaler
+
+                    pipe = Pipeline([
+                    ("scale", StandardScaler()),
+                    ("rnr", RadiusNeighborsRegressor())
+                    ])
+                    param_grid = {
+                    "rnr__radius":      [0.5,1,2,5,10],
+                    "rnr__weights":     ["uniform","distance"],
+                    "rnr__metric":      ["euclidean","manhattan"],
+                    "rnr__leaf_size":   [20,30,40]
+                    }
+                    grid = GridSearchCV(
+                    estimator=pipe,
+                    param_grid=param_grid,
+                    cv=TimeSeriesSplit(5),
+                    scoring="neg_mean_absolute_error",
+                    n_jobs=-1,
+                    verbose=2
+                    )
+                    grid.fit(X_train, y_train)
+                    </code></pre>
+                <p>
+                    <strong>Best CV MAE:</strong> MAE ≈ 184.75868055555554<br>
+                    <strong>Best Params:</strong>
+                </p>
+                <pre><code class="language-json">{
+                    "radius": 5.0,
+                    "weights": "distance",
+                    "metric": "manhattan",
+                    "leaf_size": 20
+                    }
+                    </code></pre>
+
+                <h2>5. Final Evaluation</h2>
+                <p>Applying this tuned regressor to the 6-day test set:</p>
+                <ul>
+                    <li><strong>Test MAE:</strong> 184.76 trips/hour</li>
+                    <li><strong>Test RMSE:</strong> <em>insert RMSE</em></li>
+                </ul>
+
+                <figure id="fig4">
+                    <img src="assets/BestTime.png" alt="Overlay of actual vs. predicted demand over time" />
+                    <figcaption><strong>Figure 4.</strong> Overlay of actual vs. predicted hourly demand over the test
+                        period.</figcaption>
+                </figure>
+
+                <figure id="fig5">
+                    <img src="assets/Act_Pred_Best" alt="Scatterplot actual vs. predicted" />
+                    <figcaption><strong>Figure 5.</strong> Scatterplot of actual vs. predicted trips with best-fit and
+                        ideal reference line.</figcaption>
+                </figure>
+
+                <h2>7. Next Steps &amp; Takeaways</h2>
+                <ul>
+                    <li><strong>Feature Enrichment:</strong> Merge weather and special-event data for further accuracy
+                        gains.</li>
+                    <li><strong>Advanced Methods:</strong> Explore hybrid ARIMA + ML stacks or temporal Transformers for
+                        long-range dependencies.</li>
+                    <li><strong>Operationalization:</strong> Wrap the final model in a Flask API (or Docker container)
+                        for real-time demand queries.</li>
+                </ul>
+                <p>
+                    Through this iterative process—from a basic linear fit to automated model‐racing and careful
+                    hyperparameter tuning—I achieved a robust demand‐forecasting pipeline that reduced MAE by ~30%
+                    compared to the baseline.
+                    The final model (Radius Neighbors with distance weighting) delivers reliable, fine‐grained
+                    predictions that Blue Bikes could integrate into their rebalancing and maintenance schedules.
+                </p>
+            </div>
+            <h3 style="margin-bottom: 1rem;">Key Features</h3>
+            <ul style="margin-bottom: 2rem; color: var(--text-secondary);">
+                <li>Natural language understanding</li>
+                <li>Context-aware responses</li>
+                <li>Multi-language support</li>
+                <li>Integration with various platforms</li>
+                <li>Continuous learning capabilities</li>
+            </ul>
+
+            <h3 style="margin-bottom: 1rem;">Technologies Used</h3>
+            <div class="skills">
+                <span class="skill">Python</span>
+                <span class="skill">Sklearn</span>
+                <span class="skill">Matplotlib</span>
+                <span class="skill">Pandas</span>
+                <span class="skill">Numpy</span>
+            </div>
+        </div>
+    </div>
+</div>
