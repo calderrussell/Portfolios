@@ -9,11 +9,11 @@ class Router {
             // Project detail pages
             'bike': 'content/projects/bike.html',
             'cave': 'content/projects/cave.html',
-            'nasa': 'content/projects/nasa.html',
+            'nasa': 'content/projects/NASA.html',
             'motor': 'content/projects/motor.html',
-            'ml': 'content/projects/ml.html',
+            'ml': 'content/projects/ML.html',
             'cubesat': 'content/projects/cubesat.html',
-            'llm': 'content/projects/llm.html',
+            'llm': 'content/projects/LLM.html',
             'race': 'content/projects/race.html'
         };
 
