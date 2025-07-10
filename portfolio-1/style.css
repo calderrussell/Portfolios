@@ -50,7 +50,6 @@ body {
     border-radius: 50px;
     transition: all 0.3s ease;
     width: 1000px;
-    align-items: center;
     box-shadow: 0 4px 24px rgba(0,0,0,0.06);
 }
 
