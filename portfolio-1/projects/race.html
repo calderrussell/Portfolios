@@ -6,30 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile App - Calder's Portfolio</title>
     <link rel="stylesheet" href="../style.css">
+    <script src="components/navbar-loader.js"></script>
 </head>
 <body>
     <div id="blob"></div>
     <div id="blur"></div>
-    <nav class="nav">
-        <div class="nav-content">
-            <a href="index.html" class="logo">Calder Russell</a>
-            <ul class="nav-links">
-                <li><a href="../index.html" class="nav-link">Home</a></li>
-                <li><a href="../about.html" class="nav-link">About</a></li>
-                <li><a href="../projects.html" class="nav-link active">Projects</a></li>
-                <li><a href="../contact.html" class="nav-link">Contact Me</a></li>
-            </ul>
-            <div class="nav-actions">
-                <button class="resume-button" onclick="openResume()">
-                    <span class="resume-icon">📄</span>
-                    Resume
-                </button>
-                <button class="theme-toggle" onclick="toggleTheme()">
-                    <span id="theme-icon">🌙</span>
-                </button>
-            </div>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
+    
     <main class="main">
         <div class="page">
             <div class="project-detail">
