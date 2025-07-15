@@ -1,0 +1,227 @@
+<style>
+    .github-button {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+        background: rgba(0, 0, 0, 0.7);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+
+    .github-button:hover {
+        background: rgba(0, 0, 0, 0.9);
+        transform: scale(1.1);
+    }
+
+    .github-button svg {
+        width: 18px;
+        height: 18px;
+        fill: white;
+    }
+
+    .project-card {
+        position: relative;
+    }
+
+    .project-card:hover .github-button {
+        background: rgba(0, 0, 0, 0.9);
+    }
+</style>
+
+<div id="projects" class="page">
+    <h2 style="text-align: center; font-size: 3rem; margin-bottom: 3rem;">My Projects</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <a href="#cave" style="display:block; color:inherit; text-decoration:none;">
+                <img src="assets/CaveLab.png" alt="Cave Lab App" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Cave Lab App</h3>
+                    <p class="project-description">App created in conjunction with the MIT CAVE Lab, creating an
+                        extension of the current framework to develop global leaderboards.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Django</span>
+                        <span class="project-tag">JSON</span>
+                    </div>
+                </div>
+            </a>
+            <button class="github-button"
+                onclick="window.open('https://github.com/calderrussell/CaveLab_Map_Showcase', '_blank')"
+                title="View on GitHub">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="project-card">
+            <a href="#nasa" style="display:block; color:inherit; text-decoration:none;">
+                <img src="assets/NasaTesting.jpeg" alt="Nasa Paddle Wheels" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Nasa Drop: Paddle Wheels</h3>
+                    <p class="project-description">Paddle Wheel designed to work in microgravity and tested at
+                        NASA.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">3D Printing</span>
+                        <span class="project-tag">Fusion 360</span>
+                        <span class="project-tag">Physical Chemistry</span>
+                    </div>
+                </div>
+            </a>
+            <button class="github-button" onclick="window.open('https://github.com/calderrussell/NasaDrop', '_blank')"
+                title="View on GitHub">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="project-card">
+            <a href="#motor" style="display:block; color:inherit; text-decoration:none;">
+                <img src="assets/Motor.png" alt="Motor" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Motor</h3>
+                    <p class="project-description">3D printed motor, self designed.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Fusion 360</span>
+                        <span class="project-tag">3D Printing</span>
+                        <span class="project-tag">Electrical Engineering</span>
+                    </div>
+                </div>
+            </a>
+            <button class="github-button" onclick="window.open('https://github.com/calderrussell/Motor', '_blank')"
+                title="View on GitHub">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="project-card">
+            <a href="#ml" style="display:block; color:inherit; text-decoration:none;">
+                <img src="assets/BlueBikesML.avif" alt="ML Model" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">ML Model</h3>
+                    <p class="project-description">Machine learning model designed to predict Blue Bike demand.
+                        Trained using public data from Blue Bikes. </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">SKlearn</span>
+                        <span class="project-tag">Matplotlib</span>
+                    </div>
+                </div>
+            </a>
+            <button class="github-button"
+                onclick="window.open('https://github.com/calderrussell/BlueBlikeML', '_blank')" title="View on GitHub">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="project-card">
+            <a href="#cubesat" style="display:block; color:inherit; text-decoration:none;">
+                <img src="assets/Cubesat.jpeg" alt="Cube Satellite" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Cube Satellite</h3>
+                    <p class="project-description">1U Cube Satellite made for the MIT CubeSat challenge. Can
+                        identify the location and size of fires sending information to response teams.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Fusion</span>
+                        <span class="project-tag">Raspberry PI</span>
+                        <span class="project-tag">Electrical Engineering</span>
+                    </div>
+                </div>
+            </a>
+            <button class="github-button" onclick="window.open('https://github.com/calderrussell/CubeSat', '_blank')"
+                title="View on GitHub">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="project-card">
+            <a href="#llm" style="display:block; color:inherit; text-decoration:none;">
+                <img src="assets/LLM.jpg" alt="LLM" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">LLM</h3>
+                    <p class="project-description">Mini GPT trained entirely on Brandon Sanderson books,
+                        intended to have english generative functionality.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">PyTorch</span>
+                        <span class="project-tag">Linear Algebra</span>
+                    </div>
+                </div>
+            </a>
+            <button class="github-button" onclick="window.open('https://github.com/calderrussell/BSLLM', '_blank')"
+                title="View on GitHub">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="project-card">
+            <a href="#bike" style="display:block; color:inherit; text-decoration:none;">
+                <img src="assets/Cubesat.jpeg" alt="Electric Bike" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Electric Bike</h3>
+                    <p class="project-description">Description goes here</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Electrical Engineering</span>
+                        <span class="project-tag">Mechanical Engineering</span>
+                        <span class="project-tag">CAD</span>
+                    </div>
+                </div>
+            </a>
+            <button class="github-button"
+                onclick="window.open('https://github.com/calderrussell/ElectricBike', '_blank')" title="View on GitHub">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="project-card">
+            <a href="#race" style="display:block; color:inherit; text-decoration:none;">
+                <img src="assets/cropped.png" alt="Statistical Analysis" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Statistical Analysis</h3>
+                    <p class="project-description">Statistical Analysis of the distribution of races at
+                        Cambridge Rindge and Latin. </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Matplotlib</span>
+                        <span class="project-tag">Pandas</span>
+                        <span class="project-tag">Scipy</span>
+                    </div>
+                </div>
+            </a>
+            <button class="github-button"
+                onclick="window.open('https://github.com/calderrussell/StatisticalAnalysis', '_blank')"
+                title="View on GitHub">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
