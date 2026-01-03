@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function openResume() {
     // Replace 'path/to/your/resume.pdf' with the actual path to your PDF file
-    const resumeUrl = 'assets/Calder-Resume_2025Dec.pdf';
+    const resumeUrl = 'assets/Calder_s_Resume.pdf';
     
     // Open PDF in new tab
     window.open(resumeUrl, '_blank');
