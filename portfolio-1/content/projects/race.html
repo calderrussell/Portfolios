@@ -1,30 +1,148 @@
+<style>
+    .carousel-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .carousel-header {
+        margin-bottom: 24px;
+    }
+
+    .carousel-header h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #000000;
+        margin-bottom: 8px;
+    }
+
+    .carousel-header p {
+        color: #666666;
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .carousel-container {
+        position: relative;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .carousel-wrapper {
+        position: relative;
+        width: 100%;
+        height: 800px; /* Increased height for 36-page paper */
+        overflow: hidden;
+    }
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.3s ease;
+        height: 100%;
+    }
+
+    .carousel-slide {
+        min-width: 100%;
+        height: 100%;
+        position: relative;
+        background: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid #e1e5e9;
+    }
+
+    .pdf-preview {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0; 
+        text-align: center;
+    }
+
+    .project-detail-image {
+        /* Fallback if no image or specific styling needed */
+        margin-bottom: 2rem;
+    }
+</style>
+
 <div class="page">
     <div class="project-detail">
         <a href="#projects" class="back-button">← Back to Projects</a>
-        <h1>Comparative Analysis of Racial Representation in Math Classes</h1>
-        <div class="project-detail-image"></div>
-        <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">I completed an in-depth
-            analysis of Cambridge Rindge & Latin School (CRLS) enrollment data. That work revealed several notable
-            patterns in how different student groups are distributed across levels of math coursework. Building on those
-            findings, I plan to expand the dataset to include comparable data from other districts in Massachusetts so
-            that we can contextualize CRLS’s profile within a broader landscape.</p>
+        <h1>Statistical Analysis</h1>
+        <h2>Racial Representation in Math Classes</h2>
+        
+        <!-- Placeholder image or remove if only PDF is desired. Using abstract representative image if available or generic. -->
+        <img src="assets/cropped.png" class="vert-project-detail-image" style="max-height: 300px; object-fit: contain;">
+
+        <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">
+            An in-depth statistical analysis of Cambridge Rindge & Latin School (CRLS) enrollment data, exploring how different student groups are distributed across levels of math coursework.
+        </p>
+
+        <div class="project-section">
+            <h2>1. Project Overview</h2>
+            <p>
+                This project analyzes the racial demographics of math classes at CRLS to identify potential disparities. By examining enrollment data, I aimed to uncover patterns in student distribution across different course levels.
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2>2. Methodology</h2>
+            <p>
+               I utilized Python along with Pandas for data manipulation, and Matplotlib and Scipy for statistical visualization and testing. The analysis involved cleaning the enrollment data and performing various statistical tests to determine significant differences in representation.
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2>3. Research Paper</h2>
+            <p>
+                The full findings, methodology, and statistical rigor are detailed in the attached 36-page thesis paper.
+            </p>
+        </div>
 
         <h3 style="margin-bottom: 1rem;">Key Features</h3>
         <ul style="margin-bottom: 2rem; color: var(--text-secondary);">
-            <li>Cross-platform compatibility (iOS & Android)</li>
-            <li>Offline-first architecture</li>
-            <li>Cloud synchronization</li>
-            <li>Push notifications</li>
-            <li>Biometric authentication</li>
+            <li>In-depth Statistical Analysis</li>
+            <li>Data Visualization with Matplotlib</li>
+            <li>Enrollment Disparity Study</li>
+            <li>Hypothesis Testing</li>
         </ul>
 
         <h3 style="margin-bottom: 1rem;">Technologies Used</h3>
         <div class="skills">
-            <span class="skill">React Native</span>
-            <span class="skill">TypeScript</span>
-            <span class="skill">Firebase</span>
-            <span class="skill">Redux</span>
-            <span class="skill">AsyncStorage</span>
+            <span class="skill">Python</span>
+            <span class="skill">Pandas</span>
+            <span class="skill">Matplotlib</span>
+            <span class="skill">Scipy</span>
+            <span class="skill">LaTeX</span>
+        </div>
+
+        <div class="carousel-section" style="margin-top: 3rem;">
+            <div class="project-detail">
+                <h2>Full Research Paper</h2>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-track">
+                        <div class="carousel-slide">
+                            <div class="pdf-preview">
+                                <object data="assets/CalderGradThesis.pdf" type="application/pdf" width="100%" height="100%">
+                                    <p>
+                                        Your browser doesn’t support embedded PDFs.
+                                        <a href="assets/CalderGradThesis.pdf" target="_blank">Download the PDF</a>.
+                                    </p>
+                                </object>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

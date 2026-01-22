@@ -1,30 +1,61 @@
-<div class="project-detail">
-    <a href="#projects" class="back-button">← Back to Projects</a>
-    
-    <h1>ASL Translation Model</h1>
-    <div class="project-detail-image" style="background: url('assets/asl-hero.jpg') center/cover;"></div>
-    <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">
-        A deep learning model that translates American Sign Language (ASL) to text in real-time using 
-        LSTM neural networks. Built with PyTorch and OpenCV for hand gesture recognition and sequence modeling.
-    </p>
+<div class="page">
+    <div class="project-detail">
+        <a href="#projects" class="back-button">← Back to Projects</a>
 
-    <h3 style="margin-bottom: 1rem;">Key Features</h3>
-    <ul style="margin-bottom: 2rem; color: var(--text-secondary);">
-        <li>Real-time ASL gesture recognition</li>
-        <li>LSTM-based sequence modeling</li>
-        <li>Custom data preprocessing pipeline</li>
-        <li>Webcam integration for live translation</li>
-        <li>95% accuracy on common ASL phrases</li>
-        <li>Support for continuous signing</li>
-    </ul>
+        <h1>ASL Translation Tool</h1>
+        <div class="project-detail-image" style="background: url('assets/TranslateASL_cover.png') center/cover;"></div>
+        <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">
+            TranslateASL is an application for translating American Sign Language (ASL) into text using computer vision
+            and machine learning.
+        </p>
 
-    <h3 style="margin-bottom: 1rem;">Technologies Used</h3>
-    <div class="skills">
-        <span class="skill">PyTorch</span>
-        <span class="skill">OpenCV</span>
-        <span class="skill">Python</span>
-        <span class="skill">LSTM Networks</span>
-        <span class="skill">Computer Vision</span>
-        <span class="skill">Deep Learning</span>
+        <div class="project-section">
+            <h2>1. Project Overview</h2>
+            <p>
+                The project features two distinct models: one for recognizing individual ASL letters and another for
+                recognizing words and phrases from video sequences.
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2>2. Methodology</h2>
+            <p>
+                <strong>Letter Model:</strong> Uses MediaPipe Hands for landmark extraction and an XGBoost classifier.
+                It captures webcam frames, extracts hand landmarks in real time, and accumulates predicted letters into
+                text.
+            </p>
+            <p>
+                <strong>Word Model:</strong> Uses MediaPipe Holistic for extracting pose, face, and hand landmarks.
+                Sequences of frames are fed into an LSTM neural network (trained on video sequences) to classify
+                actions.
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2>3. Results & Outcome</h2>
+            <p>
+                The system successfully translates both static gestures (letters) and dynamic signs (words/phrases) in
+                real-time using a standard webcam.
+            </p>
+        </div>
+
+        <h3 style="margin-bottom: 1rem;">Key Features</h3>
+        <ul style="margin-bottom: 2rem; color: var(--text-secondary);">
+            <li>Real-time ASL translation</li>
+            <li>Letter Recognition (XGBoost)</li>
+            <li>Word/Phrase Recognition (LSTM)</li>
+            <li>MediaPipe Landmark Extraction</li>
+            <li>Webcam Integration</li>
+        </ul>
+
+        <h3 style="margin-bottom: 1rem;">Technologies Used</h3>
+        <div class="skills">
+            <span class="skill">Python</span>
+            <span class="skill">PyTorch</span>
+            <span class="skill">OpenCV</span>
+            <span class="skill">MediaPipe</span>
+            <span class="skill">XGBoost</span>
+            <span class="skill">LSTM</span>
+        </div>
     </div>
 </div>

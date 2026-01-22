@@ -1,25 +1,72 @@
 <div class="page">
     <div class="project-detail">
         <a href="#projects" class="back-button">← Back to Projects</a>
-        <h1>Cubesat</h1>
+        <h1>Fire Detection Cube Sat</h1>
         <div class="project-detail-image" style="background: url('assets/Cubesat.jpeg') center/cover;"></div>
-        <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">I created a 1U Cubesat with the
-            goal of identifying and categorizing fires on the ground.</p>
+        <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">
+            I designed a CubeSat meant to detect fire using computer vision, take photos, and send data to a ground
+            station to aid first responders. This was made during the outbreak of fires in California and around the
+            world.
+        </p>
+
+        <div class="project-section">
+            <h2>1. Project Overview</h2>
+            <p>
+                The project focused on creating a 1U CubeSat capable of identifying the location and size of fires. It
+                autonomously processes imagery to filter out non-relevant data before transmission to save bandwidth and
+                power.
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2>2. Objective</h2>
+            <p>
+                We wanted to make a 1U CubeSat that could report needed information about fires to aid humanitarian
+                efforts.
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2>3. Methodology</h2>
+            <p>
+                We used a Raspberry Pi as the motherboard and added a photo module. We coded the satellite to take
+                photos periodically, ensuring full coverage of the earth through its orbit. It includes logic to
+                identify areas of fire and delete images not containing fire, sleeping while not taking photos to save
+                battery. A solar panel was added to recharge the battery.
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2>4. Results & Outcome</h2>
+            <p>
+                We won "Best Presentation" in the challenge we submitted it to. The system successfully demonstrated the
+                concept of autonomous fire detection from orbit.
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2>5. Next Steps</h2>
+            <p>
+                I would like to expand this into a 2U or bigger Sat so that it could improve universal access to
+                satellite imagery to aid humanitarian efforts.
+            </p>
+        </div>
 
         <h3 style="margin-bottom: 1rem;">Key Features</h3>
         <ul style="margin-bottom: 2rem; color: var(--text-secondary);">
-            <li>Computer Vision</li>
+            <li>Computer Vision for Fire Detection</li>
             <li>Solar Panel Integration</li>
             <li>Relay between satellite and ground station</li>
             <li>Smart Data storage optimization</li>
+            <li>Power management (sleep mode)</li>
         </ul>
 
         <h3 style="margin-bottom: 1rem;">Technologies Used</h3>
         <div class="skills">
             <span class="skill">Raspberry Pi</span>
-            <span class="skill">3D modeling</span>
-            <span class="skill">Open CV</span>
             <span class="skill">Python</span>
+            <span class="skill">OpenCV</span>
+            <span class="skill">Electrical Engineering</span>
         </div>
     </div>
 </div>

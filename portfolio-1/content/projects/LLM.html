@@ -1,28 +1,68 @@
 <div class="page">
     <div class="project-detail">
         <a href="#projects" class="back-button">← Back to Projects</a>
-        <h1>LLM</h1>
+        <h1>Markov Chain Word Generation</h1>
         <div class="project-detail-image" style="background: url('assets/LLM.jpg') center/cover;"></div>
-        <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">A cross-platform mobile
-            application that seamlessly syncs data across devices while providing offline functionality for
-            uninterrupted user experience.</p>
+        <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">
+            After I learned about Markov chains in Probability, I decided I wanted to make a word generator that was
+            trained off of all of Brandon Sanderson's collective works.
+        </p>
+
+        <div class="project-section">
+            <h2>1. Project Overview</h2>
+            <p>
+                This project focuses on statistical text generation. By analyzing the frequency of character and word
+                transitions in a large corpus of text, the model builds a probabilistic graph to generate new,
+                similar-sounding text.
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2>2. Objective</h2>
+            <p>
+                I wanted to better understand Markov chains and the technology that can predict words for us while
+                typing (a potential use of this project).
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2>3. Methodology</h2>
+            <p>
+                Written in Python using all hard-coded math (no high-level ML libraries, mostly NumPy). It was all done
+                using dictionaries of the connections between letters and strings of letters, effectively building a
+                graph of transition probabilities.
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2>4. Results & Outcome</h2>
+            <p>
+                It worked! Given a seed, it is able to generate a story that, while not meaning much semantically, is
+                remarkably like Brandon Sanderson's writing style, with character mentions and syntactically correct
+                sentences.
+            </p>
+        </div>
+
+        <div class="project-section">
+            <h2>5. Next Steps</h2>
+            <p>
+                I think this is as far as I can get before just making an LLM using tokenization and attention
+                mechanisms.
+            </p>
+        </div>
 
         <h3 style="margin-bottom: 1rem;">Key Features</h3>
         <ul style="margin-bottom: 2rem; color: var(--text-secondary);">
-            <li>Cross-platform compatibility (iOS & Android)</li>
-            <li>Offline-first architecture</li>
-            <li>Cloud synchronization</li>
-            <li>Push notifications</li>
-            <li>Biometric authentication</li>
+            <li>Markov Chain Implementation from scratch</li>
+            <li>Text generation based on transition probabilities</li>
+            <li>Trained on Brandon Sanderson corpus</li>
         </ul>
 
         <h3 style="margin-bottom: 1rem;">Technologies Used</h3>
         <div class="skills">
-            <span class="skill">React Native</span>
-            <span class="skill">TypeScript</span>
-            <span class="skill">Firebase</span>
-            <span class="skill">Redux</span>
-            <span class="skill">AsyncStorage</span>
+            <span class="skill">Python</span>
+            <span class="skill">Probability</span>
+            <span class="skill">NumPy</span>
         </div>
     </div>
 </div>
