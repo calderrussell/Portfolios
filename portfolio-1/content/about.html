@@ -3,81 +3,63 @@
         <div class="about-image"></div>
         <div class="about-text">
             <h2>About Me</h2>
-            <div class="meta-row" style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                <div class="location" style="display: flex; align-items: center; gap: 6px; color: #666;">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
-                        style="width: 14px; height: 14px; fill: currentColor;">
-                        <path
-                            d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
-                    </svg>
-                    <span class="location-text">Cambridge, MA</span>
-                </div>
-
-                <!-- Poker Winnings Widget -->
-                <div id="poker-box" class="poker-box">Poker: ...</div>
+            <div class="location">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                        d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+                </svg>
+                <span class="location-text">Cambridge, MA</span>
             </div>
+
+            <!-- Poker Winnings Widget -->
+            <div id="poker-box" class="poker-box">Poker: loading…</div>
 
             <style>
                 .poker-box {
-                    display: inline-flex;
-                    align-items: center;
-                    padding: 4px 12px;
-                    border-radius: 999px;
-                    /* Pill shape */
-                    font-size: 0.85rem;
-                    font-weight: 500;
-                    background-color: #f3f4f6;
-                    color: #4b5563;
-                    border: 1px solid #e5e7eb;
-                    transition: all 0.2s ease;
+                    display: inline-block;
+                    margin-top: 10px;
+                    padding: 5px 10px;
+                    border-radius: 4px;
+                    background-color: #f5f5f5;
+                    font-family: inherit;
+                    font-size: 0.9em;
+                    color: #333;
+                    border: 1px solid #ddd;
                 }
 
                 .poker-positive {
-                    color: #166534;
-                    /* Green-800 */
+                    color: #15803d;
+                    /* Green */
                     background-color: #dcfce7;
-                    /* Green-100 */
                     border-color: #bbf7d0;
-                    /* Green-200 */
                 }
 
                 .poker-negative {
-                    color: #991b1b;
-                    /* Red-800 */
+                    color: #b91c1c;
+                    /* Red */
                     background-color: #fee2e2;
-                    /* Red-100 */
                     border-color: #fecaca;
-                    /* Red-200 */
                 }
 
                 .poker-even {
-                    color: #374151;
-                    background-color: #f3f4f6;
-                    border-color: #e5e7eb;
+                    color: #444;
+                    background-color: #f5f5f5;
                 }
             </style>
 
             <script>
                 (function () {
-                    // REPLACE THIS WITH YOUR APPS SCRIPT URL
-                    var scriptUrl = "https://script.google.com/macros/s/AKfycbyBcvRTF98mKW-tj3E4uXvwa0FxLpgmZ7_CTUsY--XA_VMjDLouLEkXOmEIcySSiM6-/exec";
-
+                    var scriptUrl = "https://script.google.com/macros/s/AKfycbyBcvRTF98mKW-tj3E4uXvwa0FxLpgmZ7_CTUsY--XA_VMjDLouLEkXOmEIcySSiM6-/exec"; // REPLACE THIS WITH YOUR APPS SCRIPT URL
                     var box = document.getElementById('poker-box');
 
                     if (!scriptUrl || scriptUrl.includes("YOUR_SCRIPT_URL_HERE")) {
                         console.warn("Poker Script URL not set.");
-                        return; // Don't show anything
+                        box.textContent = "Poker: Setup Required";
+                        return;
                     }
 
-                    // Show loading state subtly
-                    box.style.display = 'inline-flex';
-                    box.textContent = "Poker: ...";
-
-                    fetch(scriptUrl + "?t=" + Date.now(), { redirect: 'follow' })
-                        .then(function (response) {
-                            if (!response.ok) { throw new Error("HTTP " + response.status); }
-                            return response.json();
-                        })
+                    fetch(scriptUrl + "?t=" + Date.now())
+                        .then(function (response) { return response.json(); })
                         .then(function (data) {
                             if (typeof data.totalWinnings === 'number') {
                                 var val = data.totalWinnings;
@@ -86,6 +68,7 @@
                                     currency: 'USD'
                                 }).format(val);
 
+                                // Explicit sign for positive numbers
                                 if (val > 0) {
                                     formatted = "+" + formatted;
                                     box.className = "poker-box poker-positive";
@@ -97,13 +80,12 @@
 
                                 box.textContent = "Poker: " + formatted;
                             } else {
-                                throw new Error("Bad Data");
+                                throw new Error("Invalid data format");
                             }
                         })
                         .catch(function (err) {
                             console.error("Poker fetch error:", err);
-                            box.textContent = "Poker: n/a"; // Minimal error text
-                            box.title = err.message; // Hover to see error
+                            box.textContent = "Poker: unavailable";
                         });
                 })();
             </script>
