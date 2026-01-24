@@ -11,6 +11,86 @@
                 <span class="location-text">Cambridge, MA</span>
             </div>
 
+            <!-- Poker Winnings Widget -->
+            <div id="poker-box" class="poker-box">Poker: loading…</div>
+
+            <style>
+                .poker-box {
+                    display: inline-block;
+                    margin-top: 10px;
+                    padding: 5px 10px;
+                    border-radius: 4px;
+                    background-color: #f5f5f5;
+                    font-family: inherit;
+                    font-size: 0.9em;
+                    color: #333;
+                    border: 1px solid #ddd;
+                }
+
+                .poker-positive {
+                    color: #15803d;
+                    /* Green */
+                    background-color: #dcfce7;
+                    border-color: #bbf7d0;
+                }
+
+                .poker-negative {
+                    color: #b91c1c;
+                    /* Red */
+                    background-color: #fee2e2;
+                    border-color: #fecaca;
+                }
+
+                .poker-even {
+                    color: #444;
+                    background-color: #f5f5f5;
+                }
+            </style>
+
+            <script>
+                (function () {
+                    var scriptUrl = "https://script.google.com/macros/s/AKfycbyBcvRTF98mKW-tj3E4uXvwa0FxLpgmZ7_CTUsY--XA_VMjDLouLEkXOmEIcySSiM6-/exec"; // REPLACE THIS WITH YOUR APPS SCRIPT URL
+                    var box = document.getElementById('poker-box');
+
+                    if (!scriptUrl || scriptUrl.includes("https://script.google.com/macros/s/AKfycbyBcvRTF98mKW-tj3E4uXvwa0FxLpgmZ7_CTUsY--XA_VMjDLouLEkXOmEIcySSiM6-/exec")) {
+                        console.warn("Poker Script URL not set.");
+                        box.textContent = "Poker: Setup Required";
+                        return;
+                    }
+
+                    fetch(scriptUrl + "?t=" + Date.now())
+                        .then(function (response) { return response.json(); })
+                        .then(function (data) {
+                            if (typeof data.totalWinnings === 'number') {
+                                var val = data.totalWinnings;
+                                var formatted = new Intl.NumberFormat('en-US', {
+                                    style: 'currency',
+                                    currency: 'USD'
+                                }).format(val);
+
+                                // Explicit sign for positive numbers
+                                if (val > 0) {
+                                    formatted = "+" + formatted;
+                                    box.className = "poker-box poker-positive";
+                                } else if (val < 0) {
+                                    box.className = "poker-box poker-negative";
+                                } else {
+                                    box.className = "poker-box poker-even";
+                                }
+
+                                box.textContent = "Poker: " + formatted;
+                            } else {
+                                throw new Error("Invalid data format");
+                            }
+                        })
+                        .catch(function (err) {
+                            console.error("Poker fetch error:", err);
+                            box.textContent = "Poker: unavailable";
+                        });
+                })();
+            </script>
+
+
             <p>I am a 17 year old senior and incoming freshman at MIT. My main interests revolve
                 around Engineering and Applied Mathematics. I am
                 most experience using Python and Java but have done some front end development as well. I have
@@ -18,12 +98,10 @@
                 majority of projects in this portfolio.</p>
             <div class="skills">
                 <span class="skill">Python</span>
-                <span class="skill">KICAD</span>
                 <span class="skill">Fusion 360</span>
                 <span class="skill">JavaScript</span>
                 <span class="skill">HTML</span>
                 <span class="skill">CSS</span>
-
             </div>
         </div>
     </div>
